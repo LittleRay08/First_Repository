@@ -1,0 +1,147 @@
+## 1 Aula: Versionamento de código
+
+---
+
+Versionamento de código: de versões diferentes, que acabam atrapalhando.
+
+Sistemas de controle
+
+- centralizado: CVSs
+
+possuí um servidor central, mas pode dar problemas caso o mesmo tenha alguma queda de rede
+
+- distribuido DVCs
+
+cada um possuí um banco das versões, para ai subir para o servidor.
+
+possuí um histórico, funcionando como backup
+
+---
+
+## 2 Aula: O que é Git
+
+---
+
+[Git](https://git-scm.com/)
+
+documentação do git
+
+Nomeclaturas:
+
+- git clone: criação de uma nova versão (local)
+- git commit: grava as alterações (local)
+- git pull: para atualizar com todas as cópias (verificação)
+- git push: manda para servidor novamente
+
+---
+
+## 3 Aula: O que é GitHub
+
+---
+
+plataforma de hospedagem de código 
+
+ele é o servidor, o drive dos programadores
+
+---
+
+-global use global config file
+--system use system config file
+--local use repository config file
+
+tres variaveis importantes 
+
+REpositorio: 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
+
+URl: https://github.com/LittleRay08/dio.git
+
+## Configurações do Git
+
+principais comandos utilizados
+
+- git config / git config —global
+- git config init.defaultBranch: utilizado para verificar em qual diretorio o git está, sempre vem no padrao de utilização
+- git config —global —list: mostra as configurações que foram modificadas no git
+- git config [user.name](http://user.name) ou [user.email](http://user.email), não é possível mudar mais de uma vez
+
+---
+
+## Autenticação do Git
+
+utilizamos os comandos git config várias vezes, mas a mais imortante delas utilizadas foi a 
+
+```jsx
+git clone
+```
+
+com ela podemos fazer a utilização dos do clone de pastas github aqui no git, fazemos isso atraves da atenticação de tokens encontrados no proprio github — setting — developers settings
+
+lá fazer a geração de um novo token e passamos para o git bash. 
+
+Uma vez colocado a autenticação no git bash fica salva e podemos apagar e clonar novamente que não será necessario a colocaçõa de token novamente, para isso usamos o comando. 
+
+```jsx
+git config credential.helper
+```
+
+---
+
+## Autenticação do Git c/ SSH
+
+uma forma mais simples e podemos fazer apenas seguindo o tutorial do proprio git 
+
+primeiro verificamos se há alguma chave já cadastrada em nosso git com o o comando:
+
+```jsx
+ls -al ~/.ssh
+```
+
+possui um passo a passo bem especifico sendo eles:
+
+- geramos uma nova chave
+
+```jsx
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+apos isso confirmamos o nosso diretorio e apos isso colocomas a nossa phrasepass, no nosso caso: morango
+
+(usaremos essa phrase em tudo)
+
+- colocamos no shh agent
+
+com
+
+```jsx
+$ eval "$(ssh-agent -s)"
+```
+
+é criado nosso agente, onde é mostrado um numero abaixo
+
+usamos o 
+
+```jsx
+shell ssh-add ~/.ssh/id_ed25519
+```
+
+para adicionar o agente
+
+e por ultimos usamos o 
+
+```jsx
+ssh-keygen -t ed25519-sk -C "YOUR_EMAIL"
+```
+
+e usamos o nosso phrasepass para entrar e confirmar, apos isso podemos fazer o processo de git clone e confirmar que deu certo o processo 
+
+---
+
+## Criando e Clonando Repositórios
+
+vamos mexer na forma de fazer um repositorio na forma de transforma um diretorio local que n esta em um controle de versao e um repositorio git 
+
+```jsx
+git remote add URL
+```
+
+fizemos um repo clonado e um repo local, onde no clonado pegamos o https do git hub
